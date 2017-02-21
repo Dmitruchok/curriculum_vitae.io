@@ -46,7 +46,7 @@ export default class EducationView extends React.Component {
 
     return(
       <div className="education">
-        <h2 className={(visible ? 'h2-new': '')} onDoubleClick={this.readMoreClick}>EDUCATION</h2>
+        <h2 className={(visible ? 'h2-new': '')} onClick={this.readMoreClick}>EDUCATION</h2>
         {tmplEducation}
       </div>
     )

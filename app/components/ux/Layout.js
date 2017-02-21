@@ -1,11 +1,12 @@
 import React from 'react';
 
-import Header from '../Header';
+import Header from '../header/Header';
 import Photo from '../photo/Photo';
 import Objective from '../objective/Objective';
 import Experience from '../work_experience/Experience';
 import Education from '../education/Education';
 import Skills from '../technical_skills/Skills';
+import Lang from '../languages/Lang';
 
 export default class Layout extends React.Component {
 
@@ -47,6 +48,25 @@ export default class Layout extends React.Component {
         tools: 'HTML5/CSS3, SASS/LESS, BEM, JavaScript, JQuery, Ajax, JSON, Grunt Automation, Gulp, React.JS, Wordpress, Git, GitHub, Sublime Text 2, Atom, Adobe Photoshop'
       },
     ];
+
+    this.lang = [
+      {
+        id:1,
+        lang: 'Ukrainian - Native'
+      },
+      {
+        id:2,
+        lang: 'Russian - Fluent'
+      },
+      {
+        id:3,
+        lang: 'English – Pre-Intermediate'
+      },
+      {
+        id:4,
+        lang: 'Polish - Elementary'
+      }
+    ];
   };
 
   render() {
@@ -58,6 +78,7 @@ export default class Layout extends React.Component {
       <Experience experienceList={this.experience} />
       <Education educationList={this.education} />
       <Skills skillsList={this.skills}/>
+      <Lang langList={this.lang} />
     </div>
   )
   }
