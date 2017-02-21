@@ -10,6 +10,14 @@ export default class ObjectiveView extends React.Component {
     }
   };
 
+  static propTypes = {
+    langList: React.PropTypes.array.isRequired
+  };
+
+  static defaultProps = {
+    langList: []
+  };
+
   readMoreClick = (e) => {
     e.preventDefault();
     this.setState({visible: true});
