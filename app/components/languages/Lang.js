@@ -29,13 +29,18 @@ export default class Lang extends React.Component {
     this.setState({visible: false});
   };
 
-  // onChangeHandler = (e) => {
-  //   this.setState({myValue: e.target.value})
-  // };
+  componentDidMount = () => {
+    ReactDOM.findDOMNode(this.refs.addInput).focus();
+  };
 
-  onButtonClick = (e) => {
-    alert(ReactDOM.findDOMNode(this.refs.addInput).value)
-    console.log(this.refs);
+  onButtonClick = () => {
+    // alert(ReactDOM.findDOMNode(this.refs.addInput).value);
+    //this.props.langList.push(ReactDOM.findDOMNode(this.refs.addInput).value);
+    let valInput = ReactDOM.findDOMNode(this.refs.addInput).value;
+    let length = this.props.langList.length;
+    let obj = {id: ++ length , lang: valInput};
+    this.props.langList.push(obj);
+    console.log(obj);
   }
 
   render() {
