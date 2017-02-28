@@ -7,8 +7,7 @@ export default class Lang extends React.Component {
   constructor () {
     super();
     this.state = {
-      visible: false,
-      inputEmpty: true
+      visible: false
     }
   };
 
@@ -35,26 +34,16 @@ export default class Lang extends React.Component {
   };
 
   onButtonClick = () => {
-    let valInput = ReactDOM.findDOMNode(this.refs.addInput);
+    let valInput = ReactDOM.findDOMNode(this.refs.addInput).value;
     let length = this.props.langList.length;
-    let obj = {id: ++ length , lang: valInput.value};
+    let obj = {id: ++ length , lang: valInput};
     this.props.langList.push(obj);
-    valInput.value = '';
-    this.setState({inputEmpty: true})
-  };
-
-  onTextChange = (e) => {
-    if (e.target.value.trim().length > 0) {
-      this.setState({inputEmpty: false})
-    } else {
-      this.setState({inputEmpty: true})
-    }
-  };
+    console.log(obj);
+  }
 
   render() {
     const visible = this.state.visible;
     const langList = this.props.langList;
-    const inputEmpty = this.state.inputEmpty;
     const tmpl = langList.map((item, index) => {
       return(
           <p key={item.id}>{item.lang}</p>
@@ -68,20 +57,12 @@ export default class Lang extends React.Component {
           {tmpl}
         </div>
         <div className={(visible ? 'form': 'none')}>
-          <input
-            type="text"
-            className="add-lang"
-            onChange = {this.onTextChange}
-            placeholder="write this..."
+          <input className="add-lang"
+            defaultValue=''
+            placeholder="введите язык"
             ref='addInput'
           />
-          <button
-            className="btn-push"
-            onClick={this.onButtonClick}
-            disabled={inputEmpty}
-           >
-           Add languages
-          </button>
+          <button onClick={this.onButtonClick}>Добавить</button>
         </div>
       </div>
     )
