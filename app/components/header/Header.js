@@ -4,7 +4,7 @@ export default class Header extends React.Component {
 
   render() {
     return(
-      <h1>Curriculum Vitae</h1>
+      <h1 className="slideInDown">Curriculum Vitae</h1>
     )
   }
 }

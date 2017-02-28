@@ -18,7 +18,8 @@ module.exports = {
 
 	entry: {
 		main: './main',
-		styles: './styles'
+		styles: './styles',
+    css: './css'
 	},
 
 	output: {
@@ -28,7 +29,7 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions: ['', '.js', '.styl']
+		extensions: ['', '.js', '.styl', '.css']
 	},
 
 	module: {
